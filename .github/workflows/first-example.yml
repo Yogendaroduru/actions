@@ -10,8 +10,12 @@ jobs:
               run: echo "This my first message"
 
             - name: Files Lists
-              run: ls
+              run: |
+                   ls
+                   ls -altr
+                   ls -al
             
             - name: Read File
               run: cat README.md
               
+            
