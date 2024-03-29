@@ -15,7 +15,6 @@ jobs:
                    ls -altr
                    ls -al
             
-            - name: Read File
-              run: cat README.md
-              
+            - name: Update packages
+              run: sudo apt update -y
             
