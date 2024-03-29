@@ -17,4 +17,7 @@ jobs:
             
             - name: Update packages
               run: sudo apt update -y
+
+            - name: executing shell script
+              run: ./sai.sh
             
