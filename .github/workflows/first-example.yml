@@ -19,5 +19,5 @@ jobs:
               run: sudo apt update -y
 
             - name: executing shell script
-              run: ./workflows/sai.sh
+              run: ./sai.sh
             
