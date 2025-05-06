@@ -30,16 +30,18 @@ jobs:
                    ./.github/workflows/sai.sh
 
     second_job:
+        needs: first_job
         runs-on: ubuntu-latest
         steps:
             - name: This is second
-              run: sleep 30
+              run: sleep 10
     
     third_job:
+        needs: second_job
         runs-on: ubuntu-latest
         steps:
             - name: This is third
-              run: sleep 35
+              run: sleep 15
 
 
             
