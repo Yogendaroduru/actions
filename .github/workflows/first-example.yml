@@ -25,7 +25,9 @@ jobs:
                    cat dragon.txt
 
             - name: Execute shell script
-              run: ./.github/workflows/sai.sh
+              run: |
+                   chmod +x .github/workflows/sai.sh
+                   ./.github/workflows/sai.sh
 
 
             
