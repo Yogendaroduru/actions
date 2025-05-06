@@ -1,0 +1,9 @@
+name: Third github actions
+
+on:
+  push
+
+jobs:
+    job1:
+        - name: This is welcom mssg
+          run: echo "This is yogi" >> yogi.txt
