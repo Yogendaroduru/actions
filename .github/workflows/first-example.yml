@@ -6,6 +6,9 @@ jobs:
     first_job:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Repo
+              run: actions/checkout@v4
+
             - name: Welcome message
               run: echo "This my first message"
 
@@ -14,7 +17,7 @@ jobs:
                    ls
                    ls -altr
                    ls -al
+                   echo "This is sai"
 
-            - name: executing shell script
-              run: echo "This is sai"
-            
+            - name: Generate ASCII Artwork
+              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
