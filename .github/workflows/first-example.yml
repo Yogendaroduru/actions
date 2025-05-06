@@ -14,10 +14,7 @@ jobs:
                    ls
                    ls -altr
                    ls -al
-            
-            - name: Update packages
-              run: sudo apt update -y
 
             - name: executing shell script
-              run: ./workflows/sai.sh
+              run: echo "This is sai"
             
