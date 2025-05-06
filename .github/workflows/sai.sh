@@ -2,5 +2,5 @@
 
 sudo apt update -y
 ls -altr
-echo "This is sai" > sai.txt
+echo "This is sai1" > sai.txt
 cat sai.txt
