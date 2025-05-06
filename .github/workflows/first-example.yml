@@ -29,6 +29,18 @@ jobs:
                    chmod +x .github/workflows/sai.sh
                    ./.github/workflows/sai.sh
 
+    second_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: This is second
+              run: sleep 30
+    
+    third_job:
+        runs-on:
+        steps:
+            - name: This is third
+              run: sleep 35
+
 
             
               
