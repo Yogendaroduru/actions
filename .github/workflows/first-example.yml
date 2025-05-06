@@ -34,15 +34,21 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: This is second
-              run: sleep 10
+              run: sleep 5
     
     third_job:
         needs: second_job
         runs-on: ubuntu-latest
         steps:
             - name: This is third
-              run: sleep 15
-
+              run: sleep 5
+    
+    fourth_job:
+        needs: [third_job,second_job]
+        runs-on: ubuntu-latest
+        steps:
+            - name: This is third
+              run: sleep 5
 
             
               
