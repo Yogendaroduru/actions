@@ -16,7 +16,7 @@ jobs:
               run: |
                    ls
                    ls -altr
-                   ls -al
+                   sudo apt-get install -y cowsay
                    echo "This is sai"
 
             - name: Generate ASCII Artwork
