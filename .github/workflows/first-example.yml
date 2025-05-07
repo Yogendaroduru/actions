@@ -4,6 +4,7 @@ on: push
 
 env: 
     NAME_NAME1: sai
+    DOCKER_PASS: yogendar@123
 jobs:
     first_job:
         env: 
@@ -34,7 +35,7 @@ jobs:
             - name: Execute shell script
               run: |
                    env | grep NAME
-                   echo "This is ${{ env.NAME_NAME}}" >> sai.txt
+                   echo "This is ${{ secrets.DOCKER_PASS }}" >> sai.txt
                    cat sai.txt
 
     second_job:
