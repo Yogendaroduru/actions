@@ -1,6 +1,6 @@
 name: My first example
 
-on: workflow_dispatch
+on: push
 
 #   schedule:
 #     - cron: "*/1 * * * *"
@@ -46,10 +46,13 @@ jobs:
 
     second_job:
         needs: first_job
+        concurrency:
+             group: production-deployment
+             cancel-in-progress: true
         runs-on: ubuntu-latest
         steps:
            - name: Sleep
-             run: sleep 2
+             run: sleep 200s
 #          - name: Download Artifacte
 #            uses: actions/download-artifact@v4
 #            with:
