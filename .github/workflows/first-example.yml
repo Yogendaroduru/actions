@@ -15,27 +15,28 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@v4
 
-            - name: Files Lists
-              run: |
-                   ls
-                   ls -altr
-                   sudo apt-get install -y cowsay
+#            - name: Files Lists
+#              run: |
+#                   ls
+#                   ls -altr
+#                   sudo apt-get install -y cowsay
 
-            - name: Generate ASCII Artwork
-              run: |
-                   cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-                   cat dragon.txt
+#            - name: Generate ASCII Artwork
+#              run: |
+#                   cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+#                   cat dragon.txt
 
-            - name: Upload Artifactes
-              uses: actions/upload-artifact@v4
-              with:
-                   name: dragon text file
-                   path: dragon.txt
+#            - name: Upload Artifactes
+#              uses: actions/upload-artifact@v4
+#              with:
+#                   name: dragon text file
+#                   path: dragon.txt
 
             - name: Execute shell script
               run: |
                    env | grep NAME
                    echo "This is ${{ vars.DOCKER_USER }}" >> sai.txt
+                   echo "This is ${{ secrets.DOCKER_PASS }}" >> sai.txt
                    cat sai.txt
 
     second_job:
