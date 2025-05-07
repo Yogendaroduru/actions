@@ -9,15 +9,11 @@ jobs:
             - name: Checkout Repo
               uses: actions/checkout@v4
 
-            - name: Welcome message
-              run: echo "This my first message"
-
             - name: Files Lists
               run: |
                    ls
                    ls -altr
                    sudo apt-get install -y cowsay
-                   echo "This is sai"
 
             - name: Generate ASCII Artwork
               run: |
@@ -31,9 +27,9 @@ jobs:
                    path: dragon.txt
 
             - name: Execute shell script
-              run: |
-                   chmod +x .github/workflows/sai.sh
-                   ./.github/workflows/sai.sh
+              env: 
+                   NAME_NAME: sai
+              run: env | grep NAME
 
     second_job:
         needs: first_job
