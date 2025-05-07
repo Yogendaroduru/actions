@@ -1,71 +1,16 @@
-name: My first example
-
+name: Second-Workflow
 on: push
-
-#   schedule:
-#     - cron: "*/1 * * * *"
-#  push
-#  push
-
-
-env: 
-    NAME_NAME1: sai
-    DOCKER_PASS: yogendar@123
 jobs:
-    first_job:
-        env: 
-            NAME_NAME: sai
-            NAME: saisai
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v4
+   deploy:
+      strategy:
+        matrix:
+          os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+          images: [hello-world, alpine]
+      runs-on: ${{ matrix.os }}
+      steps:
+          - name: Echo Docker Details
+            run: docker info
+          - name: Run Image
+            run: docker run ${{ matrix.images }}
 
-#            - name: Files Lists
-#              run: |
-#                   ls
-#                   ls -altr
-#                   sudo apt-get install -y cowsay
-
-#            - name: Generate ASCII Artwork
-#              run: |
-#                   cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-#                   cat dragon.txt
-
-#            - name: Upload Artifactes
-#              uses: actions/upload-artifact@v4
-#              with:
-#                   name: dragon text file
-#                   path: dragon.txt
-
-            - name: Execute shell script
-              run: |
-                   env | grep NAME
-                   echo "This is ${{ vars.DOCKER_USER }}" >> sai.txt
-                   echo "This is ${{ secrets.DOCKER_PASS }}" >> sai.txt
-                   cat sai.txt
-
-    second_job:
-        needs: first_job
-        timeout-minutes: 1
-        concurrency:
-             group: production-deployment
-             cancel-in-progress: false
-        runs-on: ubuntu-latest
-        steps:
-           - name: Sleep
-             run: sleep 70s
-#          - name: Download Artifacte
-#            uses: actions/download-artifact@v4
-#            with:
-#                 name: dragon text file
-#          - name: Dragon file display
-#            run: cat dragon.txt
-    
-
-    
-
-            
-              
-
-
+      
