@@ -49,11 +49,11 @@ jobs:
         needs: first_job
         concurrency:
              group: production-deployment
-             cancel-in-progress: true
+             cancel-in-progress: false
         runs-on: ubuntu-latest
         steps:
            - name: Sleep
-             run: sleep 200s
+             run: sleep 30s
 #          - name: Download Artifacte
 #            uses: actions/download-artifact@v4
 #            with:
