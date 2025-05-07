@@ -43,15 +43,10 @@ jobs:
             uses: actions/download-artifact@v4
             with:
                  name: dragon text file
-          - name: This is second
-            run: sleep 3
+          - name: Dragon file display
+            run: cat dragon.txt
     
-    third_job:
-        needs: second_job
-        runs-on: ubuntu-latest
-        steps:
-            - name: This is third
-              run: sleep 3
+
     
 
             
