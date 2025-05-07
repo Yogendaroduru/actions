@@ -1,7 +1,6 @@
 name: My first example
 
-on: 
-   push
+on: workflow_dispatch
 
 #   schedule:
 #     - cron: "*/1 * * * *"
