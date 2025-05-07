@@ -1,6 +1,9 @@
 name: My first example
 
-on: push
+on:
+   schedule:
+     - cron: "*/1 * * * *"
+#  push
 
 env: 
     NAME_NAME1: sai
