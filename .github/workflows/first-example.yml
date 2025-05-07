@@ -35,7 +35,7 @@ jobs:
             - name: Execute shell script
               run: |
                    env | grep NAME
-                   echo "This is ${{ secrets.DOCKER_PASS }}" >> sai.txt
+                   echo "This is ${{ vars.DOCKER_USER }}" >> sai.txt
                    cat sai.txt
 
     second_job:
