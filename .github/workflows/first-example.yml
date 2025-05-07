@@ -2,6 +2,8 @@ name: My first example
 
 on: push
 
+env: 
+    NAME_NAME1: sai
 jobs:
     first_job:
         env: 
@@ -30,9 +32,6 @@ jobs:
                    path: dragon.txt
 
             - name: Execute shell script
-              env: 
-                   NAME_NAME: sai1
-                   NAME: saisai1
               run: |
                    env | grep NAME
                    echo "This is ${{ env.NAME_NAME}}" >> sai.txt
