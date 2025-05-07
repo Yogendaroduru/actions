@@ -29,7 +29,11 @@ jobs:
             - name: Execute shell script
               env: 
                    NAME_NAME: sai
-              run: env | grep NAME
+                   NAME: saisai
+              run: |
+                   env | grep NAME
+                   echo "This is ${{ env.NAME_NAME}}" >> sai.txt
+                   cat sai.txt
 
     second_job:
         needs: first_job
