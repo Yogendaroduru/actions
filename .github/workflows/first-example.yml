@@ -24,6 +24,12 @@ jobs:
                    cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
                    cat dragon.txt
 
+            - name: Upload Artifactes
+              uses: actions/upload-artifact@v4
+              with:
+                   name: dragon text file
+                   path: dragon.txt
+
             - name: Execute shell script
               run: |
                    chmod +x .github/workflows/sai.sh
@@ -33,22 +39,20 @@ jobs:
         needs: first_job
         runs-on: ubuntu-latest
         steps:
-            - name: This is second
-              run: sleep 5
+          - name: Download Artifacte
+            uses: actions/download-artifact@v4
+            with:
+                 name: dragon text file
+          - name: This is second
+            run: sleep 3
     
     third_job:
         needs: second_job
         runs-on: ubuntu-latest
         steps:
             - name: This is third
-              run: sleep 5
+              run: sleep 3
     
-    fourth_job:
-        needs: [third_job,second_job]
-        runs-on: ubuntu-latest
-        steps:
-            - name: This is third
-              run: sleep 5
 
             
               
