@@ -43,12 +43,14 @@ jobs:
         needs: first_job
         runs-on: ubuntu-latest
         steps:
-          - name: Download Artifacte
-            uses: actions/download-artifact@v4
-            with:
-                 name: dragon text file
-          - name: Dragon file display
-            run: cat dragon.txt
+           - name: Sleep
+             run: sleep 2
+#          - name: Download Artifacte
+#            uses: actions/download-artifact@v4
+#            with:
+#                 name: dragon text file
+#          - name: Dragon file display
+#            run: cat dragon.txt
     
 
     
