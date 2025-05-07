@@ -4,6 +4,9 @@ on: push
 
 jobs:
     first_job:
+        env: 
+            NAME_NAME: sai
+            NAME: saisai
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repo
@@ -28,8 +31,8 @@ jobs:
 
             - name: Execute shell script
               env: 
-                   NAME_NAME: sai
-                   NAME: saisai
+                   NAME_NAME: sai1
+                   NAME: saisai1
               run: |
                    env | grep NAME
                    echo "This is ${{ env.NAME_NAME}}" >> sai.txt
