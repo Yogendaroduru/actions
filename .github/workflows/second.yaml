@@ -1,18 +1,6 @@
 name: third-Workflow1
 
-on: 
-  push:
-    branches:
-      - main
-      - '!feature/*'
-  pull_request:
-    types:
-      - opened
-      - closed
-    paths-ignore:
-      - README.md
-    branches:
-      - main
+on: push
 
 jobs:
   deploy:
@@ -24,11 +12,7 @@ jobs:
         run: docker run alpine
 
   deploy1:
-    if: github.ref == 'refs/heads/main'
     needs: deploy
-    concurrency:
-      group: prod
-      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
       - name: Echo Docker Details
