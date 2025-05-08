@@ -1,34 +1,37 @@
 name: third-Workflow1
+
 on: 
-    push:
-        branches:
-            - main
-            - '!feature/*'
-    pull_request:
-        types:
-            - opened
-            - closed
-        paths-ignore:
-            - README.md
-        branches:
-            - main
+  push:
+    branches:
+      - main
+      - '!feature/*'
+  pull_request:
+    types:
+      - opened
+      - closed
+    paths-ignore:
+      - README.md
+    branches:
+      - main
+
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Echo Docker Details
-            run: docker info
-          - name: Run Image
-            run: docker run alpine
-    deploy1:
-        if: github.ref == 'refs/heads/main'
-        needs: deploy
-        concurrency:
-            group: prod
-            cancel-in-progress: false
-        runs-on: ubuntu-latest
-        steps:
-          - name: Echo Docker Details
-            run: docker info
-          - name: Run Image
-            run: docker run alpine
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Docker Details
+        run: docker info
+      - name: Run Image
+        run: docker run alpine
+
+  deploy1:
+    if: github.ref == 'refs/heads/main'
+    needs: deploy
+    concurrency:
+      group: prod
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Docker Details
+        run: docker info
+      - name: Run Image
+        run: docker run alpine
